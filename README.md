@@ -33,7 +33,9 @@ In standard Obsidian, pasting a screenshot or image generates a new attachment f
 5. Click **Reload plugins** and toggle **Paste Into Obsidian Note** to ON.
 
 ### Option 2: BRAT plugin
+
 On Obsidian, go to the complementary modules page and install the BRAD community plug-in. Then, go in the plugin's settings and press "+" in the Beta plugin list and paste the repo's link and choose the wanted version. For now, only 1.0.0 is available.
+
 ---
 
 ## Configuration & Options

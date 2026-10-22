@@ -1,5 +1,5 @@
 {
-  "name": "paste-into-obsidian-note",
+  "name": "paste-image-into-obsidian-note",
   "version": "1.0.0",
   "description": "Embeds pasted images directly into Markdown notes as inline Base64 data without cluttering your vault with image files.",
   "main": "main.js",
@@ -16,7 +16,7 @@
     "image-paste",
     "attachments"
   ],
-  "author": "xwcaaa",
+  "author": "youssssffffff",
   "license": "MIT",
   "devDependencies": {
     "@types/node": "^20.0.0",

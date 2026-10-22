@@ -1,3 +1,5 @@
+STILL ON BUILD, First verion made with AI but i'll correct and release a better version handmade.
+
 # Paste Into Obsidian Note (PION)
 
 An ultra-clean, minimal, and performant Obsidian community plugin that intercepts clipboard image paste events (`Ctrl+V` / `Cmd+V`) in active Markdown editor views and converts the images directly into Base64 Data URLs embedded inline in your note.

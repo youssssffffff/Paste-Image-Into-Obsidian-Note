@@ -1,17 +1,9 @@
-/**
- * Paste Into Obsidian Note (PION)
- * Obsidian Community Plugin
- * 
- * Intercepts clipboard image paste events in active Markdown views and embeds
- * the image directly into the note as an inline Base64 Data URL, preventing
- * creation of image files in your vault's attachment folder.
- */
-
 'use strict';
 
 var obsidian = require('obsidian');
 
-// Default plugin configuration
+// Default settings on installation ( ≖.≖)
+
 var DEFAULT_SETTINGS = {
   enabled: true,
   altTextTemplate: 'pasted-image-{timestamp}',
@@ -22,26 +14,36 @@ var DEFAULT_SETTINGS = {
   addTrailingNewline: true
 };
 
-/**
- * Settings tab rendered in Obsidian's Options panel
- */
 class PasteIntoObsidianNoteSettingTab extends obsidian.PluginSettingTab {
   constructor(app, plugin) {
     super(app, plugin);
     this.plugin = plugin;
   }
-
+  
+// Plugin's control panel (UI) in Obsidian's settings（っ＾▿＾）
+  
   display() {
     var containerEl = this.containerEl;
     containerEl.empty();
 
-    containerEl.createEl('h2', { text: 'Paste Into Obsidian Note (PION)' });
+    containerEl.createEl('h2', { text: 'Paste Image Into Obsidian Note (PIION)' });
+    
+    new obsidian.Setting(containerEl)
+      .setName('GitHub')
+      .setDesc('Access to the Github repo hehe')
+      .addButton(button =>
+        button
+          .setButtonText('GitHub')
+          .setCta()
+          .onClick(() => {
+            window.open('https://github.com/yousssffffff/Paste-Image-Into-Obsidian-Note', '_blank');
+          })
+      );
+    
     containerEl.createEl('p', {
       text: 'Converts pasted images directly to inline Base64 data URLs without adding attachment files to your vault.',
-      cls: 'setting-item-description'
     });
 
-    // Master Toggle
     new obsidian.Setting(containerEl)
       .setName('Enable inline Base64 paste')
       .setDesc('When enabled, image paste events will be converted directly into Base64 Markdown image links.')
@@ -54,7 +56,6 @@ class PasteIntoObsidianNoteSettingTab extends obsidian.PluginSettingTab {
           })
       );
 
-    // Alt text template
     new obsidian.Setting(containerEl)
       .setName('Image Alt Text Template')
       .setDesc('Format for the markdown image alt text. Available variables: {timestamp}, {date}, {time}, {counter}.')
@@ -68,7 +69,6 @@ class PasteIntoObsidianNoteSettingTab extends obsidian.PluginSettingTab {
           })
       );
 
-    // Notification Notice Toggle
     new obsidian.Setting(containerEl)
       .setName('Show confirmation notice')
       .setDesc('Displays an Obsidian notice showing image size and successful insertion.')
@@ -81,7 +81,6 @@ class PasteIntoObsidianNoteSettingTab extends obsidian.PluginSettingTab {
           })
       );
 
-    // Trailing newline toggle
     new obsidian.Setting(containerEl)
       .setName('Add trailing newline')
       .setDesc('Inserts a new line immediately after the embedded image.')
@@ -94,7 +93,6 @@ class PasteIntoObsidianNoteSettingTab extends obsidian.PluginSettingTab {
           })
       );
 
-    // Image Compression Section
     containerEl.createEl('h3', { text: 'Image Optimization & Sizing (Optional)' });
 
     new obsidian.Setting(containerEl)
@@ -106,7 +104,7 @@ class PasteIntoObsidianNoteSettingTab extends obsidian.PluginSettingTab {
           .onChange(async (value) => {
             this.plugin.settings.enableCompression = value;
             await this.plugin.saveSettings();
-            this.display(); // Refresh to show/hide sub-settings
+            this.display();
           })
       );
 
@@ -142,12 +140,11 @@ class PasteIntoObsidianNoteSettingTab extends obsidian.PluginSettingTab {
   }
 }
 
-/**
- * Main Plugin Implementation
- */
+// Plugin's core (fun part of the code) (─‿‿─) 
+
 class PasteIntoObsidianNotePlugin extends obsidian.Plugin {
   async onload() {
-    console.log('Loading Paste Into Obsidian Note (PION) plugin');
+    console.log('Loading Paste Into Obsidian Note (PIION) plugin');
 
     this.pasteCounter = 0;
     await this.loadSettings();

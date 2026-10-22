@@ -1,0 +1,29 @@
+{
+  "name": "paste-into-obsidian-note",
+  "version": "1.0.0",
+  "description": "Embeds pasted images directly into Markdown notes as inline Base64 data without cluttering your vault with image files.",
+  "main": "main.js",
+  "scripts": {
+    "dev": "node esbuild.config.mjs",
+    "build": "node esbuild.config.mjs production"
+  },
+  "keywords": [
+    "obsidian",
+    "obsidian-plugin",
+    "markdown",
+    "base64",
+    "clipboard",
+    "image-paste",
+    "attachments"
+  ],
+  "author": "xwcaaa",
+  "license": "MIT",
+  "devDependencies": {
+    "@types/node": "^20.0.0",
+    "builtin-modules": "3.3.0",
+    "esbuild": "0.20.2",
+    "obsidian": "latest",
+    "tslib": "2.6.2",
+    "typescript": "5.4.5"
+  }
+}

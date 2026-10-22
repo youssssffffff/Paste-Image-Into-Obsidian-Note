@@ -1,0 +1,10 @@
+{
+  "id": "paste-into-obsidian-note",
+  "name": "Paste Into Obsidian Note",
+  "version": "1.0.0",
+  "minAppVersion": "0.15.0",
+  "description": "Embeds pasted images directly into Markdown notes as inline Base64 data without cluttering your vault with image files.",
+  "author": "xwcaaa",
+  "authorUrl": "https://github.com/xwcaaa",
+  "isDesktopOnly": false
+}

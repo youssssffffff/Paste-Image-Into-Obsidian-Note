@@ -1,3 +1,4 @@
+This is a personal project made to make my life easier on Obsidian.
 This version is a test made with AI but I'll correct and release a better version handmade a bit in the future. But you can still use this one if interested. :)
 
 # Paste Image Into Obsidian Note (PIION)
